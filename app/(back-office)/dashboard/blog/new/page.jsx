@@ -1,5 +1,5 @@
 import FormHeader from "@/components/backoffice/FormHeader";
-import NewTrainingForm from "@/components/backoffice/NewTrainingForm";
+// import NewTrainingForm from "@/components/backoffice/NewTrainingForm";
 // import { getData } from "@/lib/getData";
 import React from "react";
 
@@ -14,9 +14,9 @@ export default async function NewTraining() {
   return (
     <div>
       <FormHeader title="New Blog" />
-      <NewTrainingForm 
-      // categories={categories} 
-      />;
+      {/* <NewTrainingForm 
+      categories={categories} 
+      />; */}
     </div>
   );
 }
