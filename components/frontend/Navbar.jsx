@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { AlignJustify, Guitar, Heart, Home, LogIn, Music, Navigation2Icon, Phone, Signal } from 'lucide-react';
 
 const Navbar = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -77,6 +78,10 @@ const Navbar = () => {
                     <path d="M3 18H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                   </svg>
                 </button>
+                <button onClick={() => setMobileNavOpen(!mobileNavOpen)} className="xl:hidden ml-8 text-gray-400">
+              
+                  <AlignJustify />
+                </button>
               </div>
             </div>
           </div>
@@ -84,59 +89,70 @@ const Navbar = () => {
       </nav>
       <div className={`${mobileNavOpen ? 'block' : 'hidden'} fixed top-0 left-0 bottom-0 w-5/6 max-w-md z-50`}>
         <div onClick={() => setMobileNavOpen(false)} className="fixed inset-0 bg-purple-800 opacity-70"></div>
-        <nav className="relative flex flex-col pt-12 pb-6 px-8 w-full h-full bg-white overflow-y-auto">
+        <nav className="relative flex flex-col pt-12 pb-6 px-8 w-full h-full bg-gray-800 overflow-y-auto">
           <div className="flex mb-12 items-center">
             <a className="inline-block mr-auto" href="#">
-              <Image height={32} width={32} className="h-8" src="/coleos-assets/logos/logo-coleos-2.svg" alt="logo" />
+              <Image height={100} width={100} className="h-8" src="/logo.png" alt="logo" />
             </a>
-            <button onClick={() => setMobileNavOpen(false)}>
-              v
+            <button className="text-gray-400" onClick={() => setMobileNavOpen(false)}>
+              <AlignJustify />
             </button>
           </div>
-          <div className="flex w-full max-w-xs items-center px-6 border border-coolGray-200 rounded-full">
-            v
-          </div>
+          {/* <div className="flex w-full max-w-xs items-center px-6 border border-gray-200 rounded-full">
+            Login
+          </div> */}
           <div className="py-12 mb-auto">
             <ul className="flex-col">
-              <li className="mb-3">
-                <a className="group mr-6 inline-flex items-center text-base" href="#">
-                
-                  <span className="font-semibold text-gray-100">Login</span>
+              <li className="mb-2">
+                <a className="group mr-6 inline-flex items-center text-gray-400" href="#">
+                  <LogIn />
+                  <span className="font-semibold text-gray-400 ml-2">Login</span>
                 </a>
               </li>
-              <li className="mb-3">
-                <a className="group mr-6 inline-flex items-center text-base" href="#">
-                
-                  <span className="font-semibold text-gray-100">Favorite</span>
+              <li className="mb-2">
+                <a className="group mr-6 inline-flex items-center text-gray-400" href="#">
+                <Heart />
+                  <span className="font-semibold text-gray-400 ml-2">Favorites</span>
                 </a>
               </li>
-              <li className="mb-12">
+              {/* <li className="mb-12">
                 <a className="inline-flex items-center text-base text-purple-400 hover:text-purple-200" href="#">
                 
                   <span className="font-semibold text-gray-100">Cart</span>
                 </a>
-              </li>
-              <li className="mb-4">
-                <a className="flex items-center text-base font-bold text-gray-100" href="#">
-                  <span className="mr-2">Home</span>
-                  v
-                </a>
-              </li>
-              <li className="mb-4">
+              </li> */}
+             
+              {/* <li className="mb-4">
                 <a className="flex items-center text-base font-bold text-gray-100" href="#">
                   <span className="mr-2">Pages</span>
-                  v
+                
+                </a>
+              </li> */}
+               <li className="mb-2">
+                <a className="flex items-center text-base font-bold text-gray-400" href="#">
+                  <Home /> 
+                  <span className="ml-2">Home</span>
+                
                 </a>
               </li>
-              <li className="mb-4"><a className="flex items-center text-base font-bold text-gray-100" href="#">Products</a></li>
-              <li className="mb-4"><a className="flex items-center text-base font-bold text-gray-100" href="#">Blog</a></li>
-              <li className="mb-4"><a className="flex items-center text-base font-bold text-gray-100" href="#">Shop</a></li>
-              <li><a className="flex items-center text-base font-bold text-gray-100 hover:text-rhino-400" href="#">Contact</a></li>
+              <li className="mb-2"><a className="flex items-center text-base font-bold text-gray-400 hover:text-rhino-400" href="#">
+                <Music />
+                <span className="ml-2">Songs</span>
+                </a>
+                </li>
+                <li className="mb-2"><a className="flex items-center text-base font-bold text-gray-400 hover:text-rhino-400" href="#">
+                <Guitar /> 
+                <span className="ml-2">Artists</span>
+                </a>
+                </li>
+              <li className="mb-2"><a className="flex items-center text-base font-bold text-gray-400 hover:text-rhino-400" href="#">
+                <Phone /> 
+                <span className="ml-2">Contact</span>
+                </a>
+                </li>
             </ul>
           </div>
-          <div>
-            <p className="text-center text-sm text-coolGray-400">Coleos Shuffle 2023</p>
-          </div>
+         
         </nav>
       </div>
     </section>
