@@ -13,6 +13,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Category {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String     @unique
+  description String?
+  // songs    Song[]
+  // blog   Blog[]
+
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
 model Album {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
   title       String
@@ -26,15 +38,33 @@ model Album {
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
 }
+model Song {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String     @unique
+  language String?
+  isrcCode    Boolean?
+  isExplicit  Boolean?
+  lyrics      String?
+  producer      String?
 
-model Product {
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+model Artist {
   id             String   @id @default(auto()) @map("_id") @db.ObjectId
-  title          String
+  firstName          String
+  lastName          String
+  artistName          String
+  artistPhone          String
+  artistAddress          String
+  artistEmail          String
+  recordLabel          String
   slug           String   @unique
   imageUrl       String?
-  description    String?
-  isActive       Boolean
-  tags           String[]
+  is18       Boolean
   // categoryId     String   @db.ObjectId
   // category       Category @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 

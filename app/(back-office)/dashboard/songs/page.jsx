@@ -23,7 +23,7 @@ export default async function page() {
   // console.log(id);
   const role = "ADMIN"
   return (
-    <div>
+    <div className="m-8">
       {/* Header */}
       <PageHeader
         heading="Songs"

@@ -5,7 +5,7 @@ const page = () => {
 
   return (
 
-    <div className=''>
+    <div className='m-8'>
         <PageHeader title="Albums" href="/dashboard/albums/new" linkTitle="Add Album" />
         <div className="py-0">
         <DataTable 

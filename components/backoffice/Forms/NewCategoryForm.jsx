@@ -14,9 +14,9 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function NewCategoryForm({ updateData = {} }) {
-  const initialImageUrl = updateData?.imageUrl ?? "";
+  // const initialImageUrl = updateData?.imageUrl ?? "";
   const id = updateData?.id ?? "";
-  const [imageUrl, setImageUrl] = useState(initialImageUrl);
+  // const [imageUrl, setImageUrl] = useState(initialImageUrl);
   // const markets = [];
   const [loading, setLoading] = useState(false);
   const {
@@ -31,7 +31,7 @@ export default function NewCategoryForm({ updateData = {} }) {
       ...updateData,
     },
   });
-  const isActive = watch("isActive");
+  // const isActive = watch("isActive");
   const router = useRouter();
   function redirect() {
     router.push("/dashboard/categories");
@@ -40,7 +40,7 @@ export default function NewCategoryForm({ updateData = {} }) {
     const slug = generateSlug(data.title);
     data.slug = slug;
     // data.imageUrl = imageUrl;
-    console.log(data);
+    // console.log(data);
     if (id) {
       data.id = id;
       // Make Put Request (Update)
@@ -80,25 +80,25 @@ export default function NewCategoryForm({ updateData = {} }) {
           errors={errors}
         />
 
-        <TextareaInput
+        {/* <TextareaInput
           label="Category Description"
           name="description"
           register={register}
           errors={errors}
-        />
+        /> */}
         {/* <ImageInput
           imageUrl={imageUrl}
           setImageUrl={setImageUrl}
           endpoint="categoryImageUploader"
           label="Category Image"
         /> */}
-        <ToggleInput
+        {/* <ToggleInput
           label="Publish your Category"
           name="isActive"
           trueTitle="Active"
           falseTitle="Draft"
           register={register}
-        />
+        /> */}
       </div>
 
       <SubmitButton

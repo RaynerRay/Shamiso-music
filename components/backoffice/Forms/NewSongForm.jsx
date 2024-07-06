@@ -20,6 +20,7 @@ import { useForm } from "react-hook-form";
 export default function NewSongForm({
   categories,
   artists,
+  albums,
   updateData = {},
 }) {
   console.log(updateData);
@@ -44,9 +45,10 @@ export default function NewSongForm({
       ...updateData,
     },
   });
-  const isActive = watch("isActive");
+  const isExplicit = watch("isExplicit");
+  const isrcCode = watch("isrcCode");
   // const isWholesale = watch("isWholesale");
-  console.log(isActive);
+  // console.log(isExplicit);
   const router = useRouter();
   function redirect() {
     router.push("/dashboard/songs");
@@ -93,11 +95,13 @@ export default function NewSongForm({
     >
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <TextInput
-          label="Song Title"
+          label="Track Title"
           name="title"
           register={register}
           errors={errors}
+          
         />
+         
         {/* <TextInput
           label="Song SKU"
           name="sku"
@@ -114,13 +118,13 @@ export default function NewSongForm({
           className="w-full"
         /> */}
       
-        <TextInput
-          label="Add Song"
-          name="song"
+      <SelectInput
+          label="Select Artist"
+          name="artistId"
           register={register}
           errors={errors}
-          type="text"
           className="w-full"
+          options={artists}
         />
       
         <SelectInput
@@ -131,23 +135,74 @@ export default function NewSongForm({
           className="w-full"
           options={categories}
         />
+      
         <SelectInput
-          label="Select Artist"
-          name="artistId"
+          label="Select Album"
+          name="albumId"
+          register={register}
+          errors={errors}
+          className="w-full"
+          options={albums}
+        />
+        
+         <TextInput
+          label="Add Song Main Language"
+          name="language"
+          register={register}
+          errors={errors}
+          type="text"
+          className="w-full"
+        />
+
+<SelectInput
+          label="Select Version"
+          name="version"
           register={register}
           errors={errors}
           className="w-full"
           options={artists}
         />
-    
+        <ToggleInput
+          label="Does the song contain explicit content"
+          name="isExplicit"
+          trueTitle="Yes"
+          falseTitle="No"
+          register={register}
+        />
+        <ToggleInput
+          label="Does you have an ISRC code"
+          name="isrcCode"
+          trueTitle="Yes"
+          falseTitle="No"
+          register={register}
+        />
+         <TextInput
+          label="Add Song"
+          name="song"
+          register={register}
+          errors={errors}
+          type="text"
+          className="w-full"
+        />
+         <TextInput
+          label="Add Producer"
+          name="producer"
+          register={register}
+          errors={errors}
+          type="text"
+          className="w-full"
+        />
+        
         <ArrayItemsInput setItems={setTags} items={tags} itemTitle="Add Genre" />
+       
 
-        {/* <TextareaInput
+        <TextareaInput
           label="Add Lyrics"
           name="lyrics"
           register={register}
           errors={errors}
-        /> */}
+        />
+          
       
       </div>
 

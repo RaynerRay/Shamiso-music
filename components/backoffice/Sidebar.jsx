@@ -9,12 +9,17 @@ import {
   ChevronDown,
   ChevronRight,
   CircleDollarSign,
+  DiscAlbum,
   ExternalLink,
+  FolderDot,
   HeartHandshake,
   LayoutGrid,
   LayoutList,
   LogOut,
+  MicVocal,
   MonitorPlay,
+  Music,
+  PenLine,
   ScanSearch,
   SendToBack,
   Slack,
@@ -59,17 +64,17 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
     // },
     {
       title: "Artists",
-      icon: UserSquare2,
+      icon: MicVocal ,
       href: "/dashboard/artists",
     },
     {
       title: "Songs",
-      icon: Truck,
+      icon: Music,
       href: "/dashboard/songs",
     },
     {
       title: "Albums",
-      icon: Truck,
+      icon: DiscAlbum,
       href: "/dashboard/albums",
     },
     // {
@@ -79,7 +84,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
     // },
     {
       title: "Blog",
-      icon: Building2,
+      icon: PenLine ,
       href: "/dashboard/blog",
     },
     // {
@@ -111,7 +116,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
     // },
     {
       title: "Categories",
-      icon: LayoutList,
+      icon: FolderDot ,
       href: "/dashboard/categories",
     },
     // {

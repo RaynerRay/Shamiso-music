@@ -36,12 +36,12 @@ export default function NewFarmerForm({ user }) {
   function redirect() {
     router.push("/login");
   }
-  const isActive = watch("isActive");
+  const is18 = watch("is18");
   async function onSubmit(data) {
-    const code = generateUserCode("LFF", data.name);
+    const code = generateUserCode("LFF", data.artistName);
     data.code = code;
     data.userId = user.id;
-    data.products = products;
+    // data.products = products;
     data.profileImageUrl = imageUrl;
     console.log(data);
     makePostRequest(
@@ -60,15 +60,29 @@ export default function NewFarmerForm({ user }) {
     >
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <TextInput
-          label="Artist's Full Name"
-          name="name"
+          label="First Name"
+          name="firstName"
+          register={register}
+          errors={errors}
+          className="w-full"
+        />
+        <TextInput
+          label="Last Name"
+          name="lastName"
+          register={register}
+          errors={errors}
+          className="w-full"
+        />
+        <TextInput
+          label="Artist's Name / Stage Name"
+          name="artistName"
           register={register}
           errors={errors}
           className="w-full"
         />
         <TextInput
           label="Artist's Phone"
-          name="phone"
+          name="artistPhone"
           type="tel"
           register={register}
           errors={errors}
@@ -76,14 +90,21 @@ export default function NewFarmerForm({ user }) {
         />
         <TextInput
           label="Artist's Email Address"
-          name="email"
+          name="artistEmail"
           register={register}
           errors={errors}
           className="w-full"
         />
         <TextInput
           label="Artist's Physical Address"
-          name="physicalAddress"
+          name="artistAddress"
+          register={register}
+          errors={errors}
+          className="w-full"
+        />
+        <TextInput
+          label="Artist's Record Label"
+          name="recordLabel"
           register={register}
           errors={errors}
           className="w-full"
@@ -113,10 +134,19 @@ export default function NewFarmerForm({ user }) {
           errors={errors}
           className="w-full"
         /> */}
-        <ArrayItemsInput
+
+        {/* <ArrayItemsInput
           setItems={setSongs}
           items={songs}
           itemTitle="Songs"
+        /> */}
+
+        <ToggleInput
+          label="Are you 18 years old and over"
+          name="is18"
+          trueTitle="Yes"
+          falseTitle="No"
+          register={register}
         />
         {/* Configure this endpoint in the core js */}
         <ImageInput
